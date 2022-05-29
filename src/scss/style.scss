@@ -1,7 +1,7 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 $XS: 320px;
@@ -14,86 +14,90 @@ $color-basic: #cacaca;
 $bg-basic: #08020d;
 
 $fonts: (
-    "Roboto": (400, 500, 700)
+  "Roboto": (
+    400,
+    500,
+    700,
+  ),
 );
 
-@mixin font-face ($font-name, $font-weight) {
-    @font-face {
-        font-family: #{$font-name};
-        font-weight: $font-weight;
-        src: url("../fonts/#{$font-name}-#{$font-weight}.ttf");
-        font-display: swap;
-    }
+@mixin font-face($font-name, $font-weight) {
+  @font-face {
+    font-family: #{$font-name};
+    font-weight: $font-weight;
+    src: url("../fonts/#{$font-name}-#{$font-weight}.ttf");
+    font-display: swap;
+  }
 }
 
 @each $font, $weights in $fonts {
-    @each $weight in $weights {
-        @include font-face($font, $weight);
-    }
+  @each $weight in $weights {
+    @include font-face($font, $weight);
+  }
 }
 
-@mixin media-query ($size) {
-    @if ($size == XS) {
-        // Extra small devices (portrait phones, less than 320px)
-        @media (max-width: $XS) {
-            @content;
-        }
+@mixin media-query($size) {
+  @if ($size == XS) {
+    // Extra small devices (portrait phones, less than 320px)
+    @media (max-width: $XS) {
+      @content;
     }
-    @if ($size == S) {
-        // Extra small devices (portrait phones, less than 576px)
-        @media (max-width: $S) {
-            @content;
-        }
+  }
+  @if ($size == S) {
+    // Extra small devices (portrait phones, less than 576px)
+    @media (max-width: $S) {
+      @content;
     }
-    @if ($size == M) {
-        // Small devices (landscape phones, 576px and up)
-        @media (max-width: $M) {
-            @content;
-        }
+  }
+  @if ($size == M) {
+    // Small devices (landscape phones, 576px and up)
+    @media (max-width: $M) {
+      @content;
     }
-    @if ($size == L) {
-        // Medium devices (tablets, 768px and up)
-        @media (max-width: $L) {
-            @content;
-        }
+  }
+  @if ($size == L) {
+    // Medium devices (tablets, 768px and up)
+    @media (max-width: $L) {
+      @content;
     }
-    @if ($size == XL) {
-        // Large devices (desktops, 992px and up)
-        @media (max-width: $XL) {
-            @content;
-        }
+  }
+  @if ($size == XL) {
+    // Large devices (desktops, 992px and up)
+    @media (max-width: $XL) {
+      @content;
     }
+  }
 }
 
 body {
-    font-family: Roboto, sans-serif;
-    font-size: 18px;
-    line-height: 1.5;
-    color: $color-basic;
-    background-color: $bg-basic;
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  color: $color-basic;
+  background-color: $bg-basic;
 }
 
 h1 {
-    font-size: 60px;
-    line-height: 90px;
-    font-weight: 700;
-    text-transform: uppercase;
+  font-size: 60px;
+  line-height: 90px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 h2 {
-    font-size: 38px;
-    line-height: 57px;
-    font-weight: 700;
-    text-transform: uppercase;
+  font-size: 38px;
+  line-height: 57px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 @include media-query(S) {
-    h1 {
-        font-size: 30px;
-        line-height: 42px;
-    }
-    h2 {
-        font-size: 18px;
-        line-height: 27px;
-    }
+  h1 {
+    font-size: 30px;
+    line-height: 42px;
+  }
+  h2 {
+    font-size: 18px;
+    line-height: 27px;
+  }
 }
